@@ -1,0 +1,111 @@
+div{
+
+    margin-left:40%;
+
+}
+
+/* style for all span */
+
+span{
+
+    height: 70px;
+
+    width:70px;
+
+    margin: 3px;
+
+}
+
+/* style for firstRow first column */
+
+.f1c1{
+
+    background-color: blue;
+
+    float: left;
+
+}
+
+/* style for firstRow second column */
+
+.f1c2{
+
+    background-color: black;
+
+    float: left;
+
+}
+
+/* style for firstRow third column */
+
+.f1c3{
+
+    background-color: lawngreen;
+
+    float: left;
+
+}
+
+/* style for second row first column */
+
+.f2c1{
+
+    background-color:mediumvioletred;
+
+    clear: both;
+
+    float: left;
+
+}
+
+/* style for second row second column */
+
+.f2c2{
+
+    background-color: gray;
+
+    float: left;
+
+}
+
+/* style for second row third column */
+
+.f2c3{
+
+    background-color:lightgreen;
+
+    float: left;
+
+}
+
+/* style for third row first column */
+
+.f3c1{
+
+    background-color:yellow;
+
+    clear: both;
+
+    float: left;
+
+}
+
+/* style for third row second column */
+
+.f3c2{
+
+    background-color: pink;
+
+    float: left;
+
+}
+
+/* style for third row third column */
+
+.f3c3{
+
+    background-color:brown;
+
+    float: left;
+
+}
