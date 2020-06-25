@@ -1,39 +1,37 @@
-function getGithubInfo(user) {
+function getGithubInfo(username) {
     //1. Create an instance of XMLHttpRequest class and send a GET request using it.
     // The function should finally return the object(it now contains the response!)
-    var username='https://api.github.com/users/'+user;
-    console.log(username);
+    var userAPI ='https://api.github.com/users/'+username;
+    console.log(userAPI);
     $.ajax({
         type: "GET",
-        url: username,
+        url: userAPI,
         dataType: 'json',
-        //if the response is successful show the user's details
+
     }).done(function(data){
-        showUser(data);
+        showUserInfo(data);
 
     }).fail(function(){
-        console.log("Some error Happened");
-        noSuchUser(user);
+        console.log("Error");
+        noSuchUser(username);
     });
+
 }
 
-function showUser(user) {
+function showUserInfo(userAPIdata) {
     //2. set the contents of the h2 and the two div elements in the div '#profile' with the user content
-    document.getElementById('imgavg').src=user.avatar_url;
-    document.getElementById('txtname').innerText=user.name;
-    document.getElementById('txtid').innerText=user.id;
-    document.getElementById('txturl').href=user.html_url;
-    document.getElementById('txturl').innerText=user.html_url;
-    document.getElementById('txtrepository').innerText=user.public_repos;
+    $('#profile h2').html("User " + username + " Profile");
+    document.getElementById('imgavg').src=userAPIdata.avatar_url;
+    document.getElementById('txtname').innerText=userAPIdata.name;
+    document.getElementById('txtid').innerText=userAPIdata.id;
+    document.getElementById('txturl').href=userAPIdata.html_url;
+    document.getElementById('txturl').innerText=userAPIdata.html_url;
+    document.getElementById('txtrepository').innerText=userAPIdata.public_repos;
 }
-
 function noSuchUser(username) {
     //3. set the elements such that a suitable message is displayed
-    if (data.message == "Not Found" || username == '') {
-        alert("User not found");
-    }
+    $('#profile h2').html("No such User  " + username + " found");
 }
-
 $(document).ready(function () {
     $(document).on('keypress', '#username', function (e) {
         //check if the enter(i.e return) key is pressed
@@ -44,6 +42,8 @@ $(document).ready(function () {
             $(this).val("");
             //get the user's information and store the respsonse
             getGithubInfo(username);
+            //if the response is successful show the user's details
+
         }
     })
 });
