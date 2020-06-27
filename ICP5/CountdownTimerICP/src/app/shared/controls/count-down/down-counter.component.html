@@ -1,0 +1,52 @@
+<div class="down-counter-wrapper">
+    <span class="down-counter-divider days">
+        <span class="down-counter-label">days</span>
+    </span>
+  <ul>
+    <li>
+      <div>
+        <div class="shadow"></div>
+        <div class="inn">{{dateFormat.days|digitFormat}}</div>
+      </div>
+    </li>
+  </ul>
+  <span class="down-counter-divider hours">
+        <span class="down-counter-label">hours</span>
+        <span class="down-counter-dot top"></span>
+        <span class="down-counter-dot bottom"></span>
+    </span>
+  <ul>
+    <li>
+      <div>
+        <div class="shadow"></div>
+        <div class="inn">{{dateFormat.hours|digitFormat}}</div>
+      </div>
+    </li>
+  </ul>
+  <span class="down-counter-divider minutes">
+        <span class="down-counter-label">minutes</span>
+        <span class="down-counter-dot top"></span>
+        <span class="down-counter-dot bottom"></span>
+    </span>
+  <ul>
+    <li>
+      <div>
+        <div class="shadow"></div>
+        <div class="inn">{{dateFormat.minutes|digitFormat}}</div>
+      </div>
+    </li>
+  </ul>
+  <span class="down-counter-divider seconds">
+        <span class="down-counter-label">seconds</span>
+        <span class="down-counter-dot top"></span>
+        <span class="down-counter-dot bottom"></span>
+    </span>
+  <ul>
+    <li>
+      <div>
+        <div class="shadow"></div>
+        <div class="inn">{{dateFormat.seconds|digitFormat}}</div>
+      </div>
+    </li>
+  </ul>
+</div>
