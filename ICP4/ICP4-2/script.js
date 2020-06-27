@@ -7,10 +7,10 @@ function getGithubInfo(username) {
         type: "GET",
         url: userAPI,
         dataType: 'json',
-
+//if the response is successful show the user's details
     }).done(function(data){
         showUserInfo(data);
-
+//else show the suitable message
     }).fail(function(){
         console.log("Error");
         noSuchUser(username);
@@ -42,8 +42,6 @@ $(document).ready(function () {
             $(this).val("");
             //get the user's information and store the respsonse
             getGithubInfo(username);
-            //if the response is successful show the user's details
-
         }
     })
 });
