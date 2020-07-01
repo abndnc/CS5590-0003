@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="control-label">ISBN</label>
+        <input type="text" class="form-control" formControlName="isbn"
+               [ngClass]="{ 'is-invalid': submitted && form.isbn.errors }">
+        <div *ngIf="submitted && form.isbn.errors" class="invalid-feedback">
+          <div *ngIf="form.isbn.errors.required">ISBN has not been given</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Title</label>
+        <input type="text" class="form-control" formControlName="title"
+               [ngClass]="{ 'is-invalid': submitted && form.title.errors }">
+        <div *ngIf="submitted && form.title.errors" class="invalid-feedback">
+          <div *ngIf="form.title.errors.required">Title has not been given</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Description</label>
+        <input type="text" class="form-control" formControlName="description"
+               [ngClass]="{ 'is-invalid': submitted && form.description.errors }">
+        <div *ngIf="submitted && form.description.errors" class="invalid-feedback">
+          <div *ngIf="form.gender.errors.required">Description has not been given</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Author</label>
+        <input type="text"
+               formControlName="author"
+               class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && form.author.errors }">
+        <div *ngIf="submitted && form.author.errors" class="invalid-feedback">
+          <div *ngIf="form.author.errors.required">Author has not been given</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Publisher</label>
+        <input type="text" class="form-control" formControlName="publisher"
+               [ngClass]="{ 'is-invalid': submitted && form.publisher.errors }">
+        <div *ngIf="submitted && form.publisher.errors" class="invalid-feedback">
+          <div *ngIf="form.publisher.errors.required">Publisher has not been given</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Published Year</label>
+        <input type="number" class="form-control" formControlName="published_year"
+               [ngClass]="{ 'is-invalid': submitted && form.published_year.errors }">
+        <div *ngIf="submitted && form.published_year.errors" class="invalid-feedback">
+          <div *ngIf="form.published_year.errors.required">Published Year has not been given</div>
+        </div>
+      </div>
+      <button class="btn btn-default" type="button" (click)="onReset()">Reset</button>
+      <button class="btn btn-primary pull-right" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- <div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/books']">
+    Back
+  </a>
+</div>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="ISBN" formControlName="isbn"
+           [errorStateMatcher]="matcher">
+
+    <span *ngIf="!bookForm.get('isbn').valid && bookForm.get('isbn').touched">ISBN has not been given</span>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title"
+           [errorStateMatcher]="matcher">
+
+    <span *ngIf="!bookForm.get('title').valid && bookForm.get('title').touched">Book Title has not been given</span>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Author" formControlName="author"
+           [errorStateMatcher]="matcher">
+
+    <span *ngIf="!bookForm.get('author').valid && bookForm.get('author').touched">Book Author has not been given</span>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"
+              [errorStateMatcher]="matcher"></textarea>
+
+    <span *ngIf="!bookForm.get('description').valid && bookForm.get('description').touched">Book Description has not been given</span>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Publisher" formControlName="publisher"
+           [errorStateMatcher]="matcher">
+
+    <span *ngIf="!bookForm.get('publisher').valid && bookForm.get('publisher').touched">Publisher has not been given</span>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Published Year" formControlName="published_year"
+           [errorStateMatcher]="matcher">
+
+    <span *ngIf="!bookForm.get('published_year').valid && bookForm.get('published_year').touched">Published Year has not been given</span>
+
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!bookForm.valid" mat-raised-button color="primary">
+      Save Book
+    </button>
+  </div>
+</form>
+-->

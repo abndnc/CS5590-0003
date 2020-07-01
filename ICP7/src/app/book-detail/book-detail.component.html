@@ -1,0 +1,41 @@
+<div class="container book-detail-container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-sm-12 offset-sm-0">
+      <div class="list-all">
+        <a href="#" class="btn btn-outline-primary" [routerLink]="['']">
+          Back
+        </a>
+        <span class="btn-outline-primary">Book Detail</span>
+      </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <h5 class="book">{{book.isbn}} {{book.title}}</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="card-text"><small class="text-muted">Author</small></div>
+              <h5>{{book.author}}</h5>
+              <div class="card-text"><small class="text-muted">Description</small></div>
+              <h5>{{book.description}}</h5>
+            </div>
+            <div class="col-6">
+              <div class="card-text"><small class="text-muted">Publisher</small></div>
+              <h5>{{book.publisher}}</h5>
+              <div class="card-text"><small class="text-muted">Published Year</small></div>
+              <h5>{{book.published_year}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent">
+          <a href="#" class="btn btn-outline-primary" [routerLink]="['/book-edit', book._id]">
+            Edit
+          </a>
+          <a href="#" class="btn btn-outline-danger" (click)="deleteBook(book._id)">
+            Del
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

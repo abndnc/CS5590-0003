@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-padding col-lg-3 col-md-4 col-sm-6">
+      <div class="card add-book">
+        <div class="card-body">
+          <a href="book-create">Add book</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-padding col-lg-3 col-md-4 col-sm-6" *ngFor="let book of books">
+      <div class="card" [routerLink]="['/book-details/', book._id]">
+        <div class="card-body">
+          <span class="book-author">{{book.title}} {{book.author}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
