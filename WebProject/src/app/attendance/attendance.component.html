@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="offset-1 col-md-10">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title ">Attendance </h4>
+          </div>
+          <br>
+          <div class="card-body" >
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field >
+                  <input matInput  [matDatepicker]="picker1" placeholder="Choose date">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Enter the code" type="text" [(ngModel)]="studentCode">
+                  </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-md-4">
+              <button mat-raised-button type="submit"  class="btn btn-info" (click)="markAttendance()">Mark Attendance</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

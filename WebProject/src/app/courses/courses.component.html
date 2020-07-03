@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-1 col-md-10">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Register the Courses</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="updateForm" (ngSubmit)="registerCourse()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="semester">Semester</label>
+                                    <select class="form-control" id="semester">
+                                        <option>-- Select --</option>
+                                        <option>Fall 2020</option>
+                                        <option>Spring 2021</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="course">Courses</label>
+                                    <select class="form-control" id="course">
+                                        <option>-- Select --</option>
+                                        <option>CS 5051 - Big Data Programming</option>
+                                        <option>CS 5052 - Python and Deep Learning</option>
+                                        <option>CS 5053 - Advanced Software Engineering</option>
+                                        <option>CS 5054 - Principles of Big Data</option>
+                                        <option>CS 5055 - Big Data Analytics</option>
+                                        <option>CS 5056 - Web/Mobile Programming</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-info">Enroll</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
