@@ -13,7 +13,7 @@ public class SummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         Intent SummaryView = getIntent();
-        summaryText = SummaryView.getExtras().getString("Your Receipt");
+        summaryText = SummaryView.getExtras().getString("summary");
         TextView summaryTextView = findViewById(R.id.summaryText);
         summaryTextView.setText(summaryText);
 

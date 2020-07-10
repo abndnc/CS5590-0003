@@ -2,7 +2,6 @@ package com.example.vijaya.myorder;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,9 +13,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MAIN_ACTIVITY_TAG = "MainActivity";
-    final int COFFEE_PRICE = 5;
-    final int WHIPPED_CREAM_PRICE = 1;
-    final int CHOCOLATE_PRICE = 2;
+    final int PIZZA_PRICE = 5;
+    final int CHEESE_PRIZE = 1;
+    final int MUSHROOM_PRIZE = 2;
     int quantity = 3;
 
     @Override
@@ -35,19 +34,19 @@ public class MainActivity extends AppCompatActivity {
         EditText userInputNameView = (EditText) findViewById(R.id.user_input);
         String userInputName = userInputNameView.getText().toString();
 
-        // check if whipped cream is selected
-        CheckBox whippedCream = (CheckBox) findViewById(R.id.whipped_cream_checked);
-        boolean hasWhippedCream = whippedCream.isChecked();
+        // check if cheese is selected
+        CheckBox cheese = (CheckBox) findViewById(R.id.cheese_checked);
+        boolean hasCheese = cheese.isChecked();
 
-        // check if chocolate is selected
-        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate_checked);
-        boolean hasChocolate = chocolate.isChecked();
+        // check if mushroom is selected
+        CheckBox mushroom = (CheckBox) findViewById(R.id.mushroom_checked);
+        boolean hasMushroom = mushroom.isChecked();
 
         // calculate and store the total price
-        float totalPrice = calculatePrice(hasWhippedCream, hasChocolate);
+        float totalPrice = calculatePrice(hasCheese, hasMushroom);
 
         // create and store the order summary
-        String orderSummaryMessage = createOrderSummary(userInputName, hasWhippedCream, hasChocolate, totalPrice);
+        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, totalPrice);
 
         // Write the relevant code for making the buttons work(i.e implement the implicit and explicit intents
         Intent SendMail = new Intent(Intent.ACTION_SEND);
@@ -67,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String createOrderSummary(String userInputName, boolean hasWhippedCream, boolean hasChocolate, float price) {
         String orderSummaryMessage = getString(R.string.order_summary_name, userInputName) + "\n" +
-                getString(R.string.order_summary_whipped_cream, boolToString(hasWhippedCream)) + "\n" +
-                getString(R.string.order_summary_chocolate, boolToString(hasChocolate)) + "\n" +
+                getString(R.string.order_summary_cheese, boolToString(hasWhippedCream)) + "\n" +
+                getString(R.string.order_summary_mushroom, boolToString(hasChocolate)) + "\n" +
                 getString(R.string.order_summary_quantity, quantity) + "\n" +
                 getString(R.string.order_summary_total_price, price) + "\n" +
                 getString(R.string.thank_you);
@@ -81,12 +80,12 @@ public class MainActivity extends AppCompatActivity {
      * @return total Price
      */
     private float calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
-        int basePrice = COFFEE_PRICE;
+        int basePrice = PIZZA_PRICE;
         if (hasWhippedCream) {
-            basePrice += WHIPPED_CREAM_PRICE;
+            basePrice += CHEESE_PRIZE;
         }
         if (hasChocolate) {
-            basePrice += CHOCOLATE_PRICE;
+            basePrice += MUSHROOM_PRIZE;
         }
         return quantity * basePrice;
     }
@@ -112,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.i("MainActivity", "Please select less than one hundred cups of coffee");
             Context context = getApplicationContext();
-            String lowerLimitToast = getString(R.string.too_much_coffee);
+            String lowerLimitToast = getString(R.string.too_many_pizza);
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, lowerLimitToast, duration);
             toast.show();
@@ -132,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.i("MainActivity", "Please select atleast one cup of coffee");
             Context context = getApplicationContext();
-            String upperLimitToast = getString(R.string.too_little_coffee);
+            String upperLimitToast = getString(R.string.too_few_pizza);
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, upperLimitToast, duration);
             toast.show();
@@ -144,20 +143,20 @@ public class MainActivity extends AppCompatActivity {
         EditText userInputNameView = (EditText) findViewById(R.id.user_input);
         String userInputName = userInputNameView.getText().toString();
 
-        // check if whipped cream is selected
-        CheckBox whippedCream = (CheckBox) findViewById(R.id.whipped_cream_checked);
-        boolean hasWhippedCream = whippedCream.isChecked();
+        // check if cheese is selected
+        CheckBox cheese = (CheckBox) findViewById(R.id.cheese_checked);
+        boolean hasCheese = cheese.isChecked();
 
-        // check if chocolate is selected
-        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate_checked);
-        boolean hasChocolate = chocolate.isChecked();
+        // check if mushroom is selected
+        CheckBox mushroom = (CheckBox) findViewById(R.id.mushroom_checked);
+        boolean hasMushroom = mushroom.isChecked();
 
         // calculate and store the total price
-        float totalPrice = calculatePrice(hasWhippedCream, hasChocolate);
+        float totalPrice = calculatePrice(hasCheese, hasMushroom);
 
         // create and store the order summary
-        String orderSummaryMessage = createOrderSummary(userInputName, hasWhippedCream, hasChocolate, totalPrice);
-        
+        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, totalPrice);
+
         // make the button work
         Intent summaryAct = new Intent(MainActivity.this, SummaryActivity.class);
         summaryAct.putExtra("summary", orderSummaryMessage);
