@@ -34,12 +34,30 @@
             android:textSize="16sp" />
 
         <CheckBox
-            android:id="@+id/mushroom_checked"
+        android:id="@+id/mushroom_checked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16sp"
+        android:paddingLeft="24dp"
+        android:text="@string/mushroom"
+        android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/topping3_checked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
             android:paddingLeft="24dp"
-            android:text="@string/mushroom"
+            android:text="@string/topping3"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/topping4_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16sp"
+            android:paddingLeft="24dp"
+            android:text="@string/topping4"
             android:textSize="16sp" />
 
         <TextView

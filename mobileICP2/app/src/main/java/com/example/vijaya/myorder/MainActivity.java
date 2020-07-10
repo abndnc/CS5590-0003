@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     final int PIZZA_PRICE = 5;
     final int CHEESE_PRIZE = 1;
     final int MUSHROOM_PRIZE = 2;
+    final int TOPPING3_PRIZE = 1; /*not a pizza expert, sorry */
+    final int TOPPING4_PRIZE = 1;
     int quantity = 3;
 
     @Override
@@ -42,11 +44,19 @@ public class MainActivity extends AppCompatActivity {
         CheckBox mushroom = (CheckBox) findViewById(R.id.mushroom_checked);
         boolean hasMushroom = mushroom.isChecked();
 
+        // check if topping3 is selected
+        CheckBox topping3 = (CheckBox) findViewById(R.id.topping3_checked);
+        boolean hasTopping3 = topping3.isChecked();
+
+        // check if topping4 is selected
+        CheckBox topping4 = (CheckBox) findViewById(R.id.topping4_checked);
+        boolean hasTopping4 = topping4.isChecked();
+
         // calculate and store the total price
-        float totalPrice = calculatePrice(hasCheese, hasMushroom);
+        float totalPrice = calculatePrice(hasCheese, hasMushroom, hasTopping3, hasTopping4);
 
         // create and store the order summary
-        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, totalPrice);
+        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, hasTopping3, hasTopping4, totalPrice);
 
         // Write the relevant code for making the buttons work(i.e implement the implicit and explicit intents
         Intent SendMail = new Intent(Intent.ACTION_SEND);
@@ -64,10 +74,12 @@ public class MainActivity extends AppCompatActivity {
         return bool ? (getString(R.string.yes)) : (getString(R.string.no));
     }
 
-    private String createOrderSummary(String userInputName, boolean hasWhippedCream, boolean hasChocolate, float price) {
+    private String createOrderSummary(String userInputName, boolean hasCheese, boolean hasMushroom, boolean hasTopping3, boolean hasTopping4, float price) {
         String orderSummaryMessage = getString(R.string.order_summary_name, userInputName) + "\n" +
-                getString(R.string.order_summary_cheese, boolToString(hasWhippedCream)) + "\n" +
-                getString(R.string.order_summary_mushroom, boolToString(hasChocolate)) + "\n" +
+                getString(R.string.order_summary_cheese, boolToString(hasCheese)) + "\n" +
+                getString(R.string.order_summary_mushroom, boolToString(hasMushroom)) + "\n" +
+                getString(R.string.order_summary_topping3, boolToString(hasTopping3)) + "\n" +
+                getString(R.string.order_summary_topping4, boolToString(hasTopping4)) + "\n" +
                 getString(R.string.order_summary_quantity, quantity) + "\n" +
                 getString(R.string.order_summary_total_price, price) + "\n" +
                 getString(R.string.thank_you);
@@ -79,13 +91,19 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return total Price
      */
-    private float calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+    private float calculatePrice(boolean hasCheese, boolean hasMushroom, boolean hasTopping3, boolean hasTopping4) {
         int basePrice = PIZZA_PRICE;
-        if (hasWhippedCream) {
+        if (hasCheese) {
             basePrice += CHEESE_PRIZE;
         }
-        if (hasChocolate) {
+        if (hasMushroom) {
             basePrice += MUSHROOM_PRIZE;
+        }
+        if (hasTopping3) {
+            basePrice += TOPPING3_PRIZE;
+        }
+        if (hasTopping4) {
+            basePrice += TOPPING4_PRIZE;
         }
         return quantity * basePrice;
     }
@@ -151,11 +169,19 @@ public class MainActivity extends AppCompatActivity {
         CheckBox mushroom = (CheckBox) findViewById(R.id.mushroom_checked);
         boolean hasMushroom = mushroom.isChecked();
 
+        // check if topping3 is selected
+        CheckBox topping3 = (CheckBox) findViewById(R.id.topping3_checked);
+        boolean hasTopping3 = topping3.isChecked();
+
+        // check if topping4 is selected
+        CheckBox topping4 = (CheckBox) findViewById(R.id.topping4_checked);
+        boolean hasTopping4 = topping4.isChecked();
+
         // calculate and store the total price
-        float totalPrice = calculatePrice(hasCheese, hasMushroom);
+        float totalPrice = calculatePrice(hasCheese, hasMushroom, hasTopping3, hasTopping4);
 
         // create and store the order summary
-        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, totalPrice);
+        String orderSummaryMessage = createOrderSummary(userInputName, hasCheese, hasMushroom, hasTopping3, hasTopping4, totalPrice);
 
         // make the button work
         Intent summaryAct = new Intent(MainActivity.this, SummaryActivity.class);

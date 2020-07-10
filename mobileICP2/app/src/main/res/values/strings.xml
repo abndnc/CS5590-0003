@@ -4,6 +4,8 @@
     <string name="toppings">Toppings</string>
     <string name="cheese">Cheese</string>
     <string name="mushroom">Mushroom</string>
+    <string name="topping3">Topping 3</string>
+    <string name="topping4">Topping 4</string>
     <string name="quantity">Quantity</string>
     <string name="initial_quantity_value">2</string>
     <string name="order">Order</string>
@@ -12,6 +14,8 @@
     <string name="no">No</string>
     <string name="order_summary_cheese">Add Cheese? <xliff:g example="yes" id="addWhippedCream">%s</xliff:g></string>
     <string name="order_summary_mushroom">Add Mushroom? <xliff:g example="yes" id="addChocolate">%s</xliff:g></string>
+    <string name="order_summary_topping3">Add Topping3? <xliff:g example="yes" id="addChocolate">%s</xliff:g></string>
+    <string name="order_summary_topping4">Add Topping4? <xliff:g example="yes" id="addChocolate">%s</xliff:g></string>
     <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
     <string name="order_summary_total_price">Total: $ <xliff:g example="10" id="price">%.2f</xliff:g></string>
     <string name="thank_you">Thank you!</string>
