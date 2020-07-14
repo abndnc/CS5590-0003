@@ -68,8 +68,8 @@ public class QueryUtils {
             JSONObject jsonObject = new JSONObject(responseString.toString());
             JSONArray jsonArray = jsonObject.getJSONArray("features");
 
-            for (int eQuake = 0; eQuake < jsonArray.length(); eQuake++){
-                JSONObject tempJson = jsonArray.getJSONObject(eQuake);
+            for (int earthquakeIndex = 0; earthquakeIndex < jsonArray.length(); earthquakeIndex++){
+                JSONObject tempJson = jsonArray.getJSONObject(earthquakeIndex);
                 JSONObject properties = tempJson.getJSONObject("properties");
 
                 Double storedMag = properties.getDouble("mag");
